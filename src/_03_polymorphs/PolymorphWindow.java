@@ -5,19 +5,28 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class PolymorphWindow extends JPanel implements ActionListener{
+public class PolymorphWindow extends JPanel implements ActionListener, MouseMotionListener {
     public static final int WIDTH = 900;
     public static final int HEIGHT = 600;
     
     private JFrame window;
     private Timer timer;
     
+    /*
     Polymorph bluePoly;
+    Polymorph redPoly;
+    Polymorph movingPoly;
+    */
+    ArrayList<Polymorph> polyList = new ArrayList<Polymorph>();
     
     public static void main(String[] args) {
    	 new PolymorphWindow().buildWindow();
@@ -30,8 +39,12 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    	 window.pack();
    	 window.setVisible(true);
-   	 
-   	 bluePoly = new BluePolymorph(50, 50);
+   	window.addMouseMotionListener(this);
+   	 polyList.add(new BluePolymorph(50, 50, 50, 50));
+   	polyList.add(new RedPolymorph(325, 250, 150, 150));
+   	polyList.add(new MovingPolymorph(300, 100, 25, 25));
+   	polyList.add(new CirclePolymorph(125,225,75,75));
+   	polyList.add(new MousePolymorph(50,300,25,25));
    	 
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
@@ -43,13 +56,35 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 g.fillRect(0, 0, 500, 500);
    	
    	 //draw polymorph
-   	 bluePoly.draw(g);
+   	 for(Polymorph p : polyList) {
+   		 p.draw(g);
+   	 }
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
    	 repaint();
-   	 bluePoly.update();
+   	 for(Polymorph p : polyList) {
+   		 p.update();
+   	 }
    	 
     }
+
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+	   	 for(Polymorph p : polyList) {
+	   		 p.mouseMoved(e);
+	   	 }
+
+
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
