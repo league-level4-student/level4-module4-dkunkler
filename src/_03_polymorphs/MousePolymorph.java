@@ -2,11 +2,11 @@ package _03_polymorphs;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.MouseInfo;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-public class MousePolymorph extends Polymorph implements MouseMotionListener {
+
+public class MousePolymorph extends Polymorph implements MouseMotionListener{
 	int targetX;
 	int targetY;
 	
@@ -64,6 +64,7 @@ public class MousePolymorph extends Polymorph implements MouseMotionListener {
 		// TODO Auto-generated method stub
 		
 	}
+
 }
 
 

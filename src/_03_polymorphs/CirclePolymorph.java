@@ -2,9 +2,8 @@ package _03_polymorphs;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
 
-public class CirclePolymorph extends Polymorph{
+public class CirclePolymorph extends Polymorph {
 
 	int circleX;
 	int circleY;
@@ -30,16 +29,4 @@ public class CirclePolymorph extends Polymorph{
 
 	}
 
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

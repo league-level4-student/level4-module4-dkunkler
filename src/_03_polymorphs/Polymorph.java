@@ -1,14 +1,15 @@
 package _03_polymorphs;
 
 import java.awt.Graphics;
-import java.awt.event.MouseMotionListener;
 
-public abstract class Polymorph implements MouseMotionListener {
+
+public abstract class Polymorph {
     private
 	int x;
     int y;
     int width;
     int height;
+	
     
     public int getX() {
     	return x;
@@ -43,21 +44,19 @@ public abstract class Polymorph implements MouseMotionListener {
     public void setHeight(int h) {
     	height = h;
     }
-    
-    
+
     Polymorph(int x, int y, int w, int h){
    	 this.x = x;
    	 this.y = y;
    	 width = w;
    	 height = h;
+   	 
     }
-    
-    
-    
     
     public void update(){
    	 
     }
     
-    public abstract void draw(Graphics g);
+    public abstract void draw(Graphics g) ;
+
 }
